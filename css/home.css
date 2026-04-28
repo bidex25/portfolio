@@ -598,7 +598,7 @@
         display: none;
     }
 
-    /* Buttons stack */
+    /* Buttons layout on mobile */
     .hero-ctas {
         flex-direction: column;
         align-items: center;
@@ -606,11 +606,28 @@
         width: 100%;
     }
 
-    .hero-ctas .btn-wa,
-    .hero-ctas .btn-ghost {
+    /* WhatsApp full width on its own */
+    .hero-ctas .btn-wa {
         width: 100%;
-        max-width: 300px;
+        max-width: 320px;
         justify-content: center;
+    }
+
+    /* View My Work + Download CV sit side by side */
+    .hero-ctas .btn-ghost {
+        flex: 1;
+        justify-content: center;
+        font-size: 11px;
+        padding: 12px 14px;
+    }
+
+    /* Wrap the two ghost buttons in a row */
+    .hero-ctas {
+        flex-wrap: wrap;
+    }
+
+    .hero-ctas .btn-wa {
+        flex: 0 0 100%;
     }
 
     /* CTA banner buttons */
