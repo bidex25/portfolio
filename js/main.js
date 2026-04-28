@@ -69,24 +69,6 @@
         // Close button inside mobile menu
         document.querySelector('.nav-mobile-close')?.addEventListener('click', closeMenu);
 
-        // Mobile CV button
-        document.getElementById('btn-cv-mobile')?.addEventListener('click', () => {
-            const isInnerPage = window.location.pathname.includes('/pages/');
-            const cvPath = isInnerPage ? '../assets/resume.pdf' : 'assets/resume.pdf';
-            fetch(cvPath, { method: 'HEAD' })
-                .then(res => {
-                    if (res.ok) {
-                        const a = document.createElement('a');
-                        a.href = cvPath;
-                        a.download = 'BidexTech-CV.pdf';
-                        a.click();
-                    } else {
-                        alert('CV coming soon. Contact me on WhatsApp.');
-                    }
-                })
-                .catch(() => alert('CV coming soon. Contact me on WhatsApp.'));
-        });
-
         // Close on Escape
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && menuOpen) closeMenu();
