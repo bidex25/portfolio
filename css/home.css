@@ -520,20 +520,42 @@
 
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
+
+    /* Hero stacks vertically */
     .hero-inner {
         grid-template-columns: 1fr;
-        padding-top: 110px;
+        padding-top: 100px;
         padding-bottom: 60px;
-        gap: 48px;
+        gap: 36px;
+        text-align: center;
     }
 
+    /* Photo centers and shrinks */
     .hero-photo-wrap {
-        max-width: 300px;
+        max-width: 260px;
         margin: 0 auto;
     }
 
+    /* Text elements center */
+    .hero-eyebrow {
+        justify-content: center;
+    }
+
+    .hero-roles {
+        justify-content: center;
+    }
+
+    .hero-ctas {
+        justify-content: center;
+    }
+
+    .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .hero-title {
-        font-size: clamp(48px, 12vw, 80px);
+        font-size: clamp(44px, 11vw, 72px);
     }
 
     .hero-scroll-hint {
@@ -542,10 +564,18 @@
 }
 
 @media (max-width: 820px) {
+
+    /* Intro grid */
     .intro-grid {
         grid-template-columns: 1fr;
+        text-align: center;
     }
 
+    .intro-text .section-divider {
+        margin: 20px auto 40px;
+    }
+
+    /* Stats bar */
     .hero-stats-row {
         flex-wrap: wrap;
     }
@@ -558,16 +588,32 @@
         display: none;
     }
 
+    /* Buttons stack */
     .hero-ctas {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 10px;
+        width: 100%;
     }
 
     .hero-ctas .btn-wa,
     .hero-ctas .btn-ghost {
         width: 100%;
-        max-width: 320px;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    /* CTA banner buttons */
+    .cta-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .cta-btns .btn-wa,
+    .cta-btns .btn-ghost {
+        width: 100%;
+        max-width: 300px;
         justify-content: center;
     }
 }
@@ -578,7 +624,7 @@
     }
 
     .hero-title {
-        font-size: clamp(40px, 11vw, 60px);
+        font-size: clamp(38px, 12vw, 56px);
     }
 
     .hero-title-white,
@@ -588,11 +634,11 @@
     }
 
     .hero-photo-wrap {
-        max-width: 260px;
+        max-width: 220px;
     }
 
-    .hero-stat {
-        flex: 1 1 50%;
+    .hero-photo-badge-text {
+        font-size: 11px;
     }
 
     .stat-num {
@@ -601,6 +647,20 @@
 
     .stat-label {
         font-size: 10px;
+    }
+
+    .hero-stat {
+        padding: 16px 10px;
+    }
+
+    /* Eyebrow text smaller */
+    .hero-eyebrow {
+        font-size: 11px;
+        gap: 8px;
+    }
+
+    .hero-eyebrow::before {
+        width: 20px;
     }
 }
 

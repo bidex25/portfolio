@@ -709,3 +709,262 @@
     letter-spacing: -0.02em;
     line-height: 1.15;
 }
+
+/* ============================
+   EXTRA MOBILE FIXES
+   ============================ */
+@media (max-width: 520px) {
+
+    /* About page */
+    .about-grid {
+        gap: 40px;
+    }
+
+    .about-text-col h2 {
+        font-size: clamp(28px, 8vw, 42px);
+    }
+
+    .about-story p {
+        font-size: 14px;
+    }
+
+    /* Services */
+    .svc-grid {
+        gap: 14px;
+    }
+
+    .svc-name {
+        font-size: 18px;
+    }
+
+    /* Projects */
+    .proj-grid {
+        gap: 14px;
+    }
+
+    .proj-name {
+        font-size: 16px;
+    }
+
+    /* Contact */
+    .contact-grid {
+        gap: 40px;
+    }
+
+    .contact-links {
+        gap: 10px;
+    }
+
+    .clink {
+        padding: 14px 16px;
+    }
+
+    .clink-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Photo banner */
+    .about-photo-banner {
+        height: 260px;
+    }
+
+    .about-photo-banner-overlay h3 {
+        font-size: 20px;
+    }
+
+    /* Skills */
+    .skill-card {
+        padding: 14px 6px;
+    }
+
+    .sk-name {
+        font-size: 10px;
+    }
+}
+
+
+/* ================================================
+   COMPREHENSIVE PAGES MOBILE FIXES
+   ================================================ */
+
+@media (max-width: 820px) {
+
+    /* Page hero */
+    .page-hero {
+        padding: calc(64px + 40px) 0 44px;
+        text-align: center;
+    }
+
+    .page-hero h1 {
+        font-size: clamp(28px, 8vw, 48px);
+    }
+
+    .page-hero .eyebrow {
+        display: block;
+        text-align: center;
+    }
+
+    /* About grid */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-photo-col {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .about-text-col {
+        text-align: center;
+    }
+
+    .about-text-col h2 {
+        font-size: clamp(28px, 7vw, 42px);
+    }
+
+    .about-story p {
+        text-align: left;
+    }
+
+    .role-tags {
+        justify-content: center;
+    }
+
+    .about-text-col .section-divider {
+        margin: 20px auto 40px;
+    }
+
+    /* Work With Me button center */
+    .about-text-col>div {
+        text-align: center;
+    }
+
+    /* Skills grid */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    }
+
+    /* Services */
+    .svc-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-top {
+        text-align: center;
+    }
+
+    .services-top .sec-sub {
+        margin: 0 auto;
+    }
+
+    /* Projects */
+    .proj-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Contact */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-left {
+        text-align: center;
+    }
+
+    .contact-left h2 {
+        font-size: clamp(26px, 7vw, 40px);
+    }
+
+    .contact-left .section-divider {
+        margin: 20px auto 40px;
+    }
+
+    .contact-links {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* About photo banner */
+    .about-photo-banner {
+        height: clamp(240px, 50vw, 360px);
+    }
+
+    .about-photo-banner-overlay h3 {
+        font-size: clamp(18px, 5vw, 28px);
+    }
+}
+
+@media (max-width: 520px) {
+
+    /* Section padding tighter on small phones */
+    .section {
+        padding: clamp(48px, 10vw, 80px) 0;
+    }
+
+    /* Service cards */
+    .svc-card {
+        padding: 24px 18px;
+    }
+
+    .svc-num {
+        font-size: 10px;
+    }
+
+    /* Project cards */
+    .proj-thumb {
+        height: 140px;
+        font-size: 36px;
+    }
+
+    .proj-body {
+        padding: 18px;
+    }
+
+    .proj-name {
+        font-size: 16px;
+    }
+
+    .proj-desc {
+        font-size: 13px;
+    }
+
+    /* Contact form */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+        font-size: 16px;
+    }
+
+    /* prevents zoom on iOS */
+
+    /* Contact links */
+    .clink {
+        padding: 14px 16px;
+    }
+
+    .clink-val {
+        font-size: 12px;
+        word-break: break-all;
+    }
+
+    /* Skills */
+    .skill-card {
+        padding: 14px 6px;
+    }
+
+    .sk-name {
+        font-size: 10px;
+    }
+}
