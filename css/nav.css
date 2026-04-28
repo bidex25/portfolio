@@ -138,18 +138,18 @@
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
   background: none;
   border: none;
   padding: 10px;
   cursor: pointer;
-  z-index: 101;
+  z-index: 201;
   position: relative;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   min-width: 44px;
   min-height: 44px;
-  align-items: center;
 }
 
 .nav-ham span {
@@ -180,7 +180,7 @@
 .nav-mobile {
   position: fixed;
   inset: 0;
-  z-index: 99;
+  z-index: 200;
   background: rgba(5, 5, 5, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -188,7 +188,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -203,23 +203,51 @@
 
 .nav-mobile a {
   font-family: var(--font-head);
-  font-size: clamp(28px, 8vw, 42px);
+  font-size: clamp(26px, 7vw, 40px);
   font-weight: 900;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
-  padding: 12px 32px;
+  padding: 16px 40px;
   display: block;
   width: 100%;
   text-align: center;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  transition: color 0.2s ease;
+  -webkit-tap-highlight-color: rgba(212, 175, 55, 0.1);
+  transition: color 0.2s ease, background 0.2s ease;
+  border-radius: 12px;
 }
 
 .nav-mobile a:hover,
-.nav-mobile a:active {
+.nav-mobile a:active,
+.nav-mobile a:focus {
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.06);
+  outline: none;
+}
+
+/* Close button inside mobile menu */
+.nav-mobile-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--white-55);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.2s ease;
+}
+
+.nav-mobile-close:hover,
+.nav-mobile-close:active {
   color: var(--gold);
 }
 

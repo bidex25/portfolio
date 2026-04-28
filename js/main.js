@@ -28,6 +28,7 @@
         const ham = document.querySelector('.nav-ham');
         const mobileNav = document.querySelector('.nav-mobile');
         let menuOpen = false;
+        let lastToggle = 0;
 
         function openMenu() {
             menuOpen = true;
@@ -45,21 +46,28 @@
             ham?.setAttribute('aria-expanded', 'false');
         }
 
+        // Debounce to prevent double-fire from touch + click
         function toggleMenu(e) {
             e.preventDefault();
             e.stopPropagation();
+            const now = Date.now();
+            if (now - lastToggle < 300) return;
+            lastToggle = now;
             menuOpen ? closeMenu() : openMenu();
         }
 
-        // Both click and touchend for reliable mobile response
         ham?.addEventListener('click', toggleMenu);
-        ham?.addEventListener('touchend', toggleMenu, { passive: false });
 
-        // Close when a nav link is tapped
+        // Close when a nav link is tapped — use click only, no touchend
         document.querySelectorAll('.nav-mobile a').forEach(a => {
-            a.addEventListener('click', closeMenu);
-            a.addEventListener('touchend', closeMenu, { passive: true });
+            a.addEventListener('click', function (e) {
+                closeMenu();
+                // Allow navigation to proceed naturally
+            });
         });
+
+        // Close button inside mobile menu
+        document.querySelector('.nav-mobile-close')?.addEventListener('click', closeMenu);
 
         // Close on Escape
         document.addEventListener('keydown', e => {
