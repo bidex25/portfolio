@@ -329,7 +329,11 @@
     display: none;
   }
 
-  .nav-right {
+  .btn-nav-wa {
+    display: none;
+  }
+
+  .btn-nav-cv {
     display: none;
   }
 
