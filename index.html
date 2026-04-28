@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Bidex Tech — Fullstack Developer, Digital Marketer & Tech Educator helping businesses build, grow and scale online. Based in Lagos, Nigeria." />
+  <title>Bidex Tech — I Build. I Grow. I Teach.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <span class="nav-logo-wordmark">Bidex<span class="gold">Tech</span></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/services.html">Services</a></li>
+          <li><a href="pages/projects.html">Projects</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="https://wa.me/2348086506919" target="_blank" rel="noopener" class="btn-nav-wa">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.112 1.523 5.837L0 24l6.352-1.499A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.876 0-3.63-.502-5.147-1.374l-.368-.217-3.77.889.944-3.667-.239-.378A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+            </svg>
+            WhatsApp
+          </a>
+          <button class="btn-nav-cv" id="btn-cv">Download CV</button>
+          <button class="nav-ham" aria-label="Open menu"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="nav-mobile">
+    <a href="index.html">Home</a>
+    <a href="pages/about.html">About</a>
+    <a href="pages/services.html">Services</a>
+    <a href="pages/projects.html">Projects</a>
+    <a href="pages/contact.html">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+
+    <!-- Matrix canvas background -->
+    <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+    <!-- Dark shield over text area so matrix doesn't kill readability -->
+    <div class="hero-text-shield" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- Left: Text -->
+        <div class="hero-text">
+          <span class="eyebrow hero-eyebrow">Welcome to Bidex Tech</span>
+
+          <h1 class="hero-title">
+            <span class="hero-title-white">I Build.</span>
+            <span class="gold-block">I Grow.</span>
+            <span class="hero-title-line3">I Teach.</span>
+          </h1>
+
+          <p class="hero-desc">Fullstack Developer &amp; Digital Marketer helping businesses
+            <strong>build, grow, and scale online</strong> — through high-converting websites,
+            targeted ad campaigns, and results-driven strategy.
+          </p>
+
+          <div class="hero-roles">
+            <span>Developer</span>
+            <span class="dot" aria-hidden="true">·</span>
+            <span>Ads Strategist</span>
+            <span class="dot" aria-hidden="true">·</span>
+            <span>Digital Marketer</span>
+          </div>
+
+          <div class="hero-ctas">
+            <a href="https://wa.me/2348086506919?text=Hi%2C%20I%20found%20Bidex%20Tech%20and%20I'd%20like%20to%20discuss%20a%20project."
+              target="_blank" rel="noopener" class="btn-wa mag">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.112 1.523 5.837L0 24l6.352-1.499A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.876 0-3.63-.502-5.147-1.374l-.368-.217-3.77.889.944-3.667-.239-.378A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+              </svg>
+              Chat on WhatsApp
+            </a>
+            <a href="pages/projects.html" class="btn-ghost mag">View My Work</a>
+          </div>
+        </div>
+
+        <!-- Right: Framed photo -->
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-card">
+            <img src="assets/img/studio.png" alt="Abidemi Abolaji — Bidex Tech" />
+            <div class="hero-photo-badge">
+              <span class="hero-photo-badge-dot" aria-hidden="true"></span>
+              <span class="hero-photo-badge-text">Available for Projects</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="hero-stats">
+    <div class="container">
+      <div class="hero-stats-row">
+        <div class="hero-stat">
+          <span class="stat-num" data-target="4" data-suffix="+">0</span>
+          <span class="stat-label">Websites Built</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="4" data-suffix="+">0</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="2" data-suffix="+">0</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="50" data-suffix="+">0</span>
+          <span class="stat-label">People Impacted</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO STRIP -->
+  <section class="section intro-strip">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text reveal">
+          <span class="eyebrow">Who I Am</span>
+          <h2 class="heading-line">Developer.<br>Marketer.<br>Strategist.</h2>
+          <div class="section-divider"></div>
+          <p>I don't just build websites — I build platforms that attract traffic, convert visitors, and generate
+            measurable results. Based in Lagos, serving clients locally and globally.</p>
+          <a href="pages/about.html" class="btn-gold" style="margin-top:32px;display:inline-flex;">Learn More About
+            Me</a>
+        </div>
+        <div class="intro-cards stagger">
+          <div class="intro-card tilt">
+            <div class="ic-icon">🌐</div>
+            <h3>Website Development</h3>
+            <p>Custom, fast, conversion-focused websites and web apps.</p>
+          </div>
+          <div class="intro-card tilt">
+            <div class="ic-icon">📣</div>
+            <h3>Digital Marketing</h3>
+            <p>Facebook, Google &amp; TikTok ads that drive real revenue.</p>
+          </div>
+          <div class="intro-card tilt">
+            <div class="ic-icon">🔧</div>
+            <h3>WordPress Solutions</h3>
+            <p>Speed-optimized WordPress sites built to rank and convert.</p>
+          </div>
+          <div class="intro-card tilt">
+            <div class="ic-icon">📈</div>
+            <h3>Growth Strategy</h3>
+            <p>End-to-end digital strategy that combines web presence and marketing to scale your business.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner section">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <span class="eyebrow" style="text-align:center;display:block;">Ready to Grow?</span>
+        <h2>Let's Build Something<br><span class="gold">That Works</span></h2>
+        <p>Whether you're starting from scratch or scaling up — Bidex Tech is here to help.</p>
+        <div class="cta-btns">
+          <a href="https://wa.me/2348086506919" target="_blank" rel="noopener" class="btn-wa mag">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.112 1.523 5.837L0 24l6.352-1.499A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.876 0-3.63-.502-5.147-1.374l-.368-.217-3.77.889.944-3.667-.239-.378A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+            </svg>
+            Chat on WhatsApp
+          </a>
+          <a href="pages/contact.html" class="btn-ghost mag">Send a Message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <span class="footer-wordmark">Bidex<span class="gold">Tech</span></span>
+        </div>
+        <p class="footer-copy">© <span id="year"></span> Bidex Tech · Lagos, Nigeria 🇳🇬</p>
+        <div class="footer-links">
+          <a href="https://github.com/bidex25" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/abidemi-abolaji-2155b0245/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://x.com/thebidex" target="_blank" rel="noopener">Twitter/X</a>
+          <a href="https://www.instagram.com/thebidex/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@thebidex" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/2348086506919" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+      <path
+        d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.112 1.523 5.837L0 24l6.352-1.499A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.876 0-3.63-.502-5.147-1.374l-.368-.217-3.77.889.944-3.667-.239-.378A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script src="js/matrix.js"></script>
+</body>
+
+</html>
