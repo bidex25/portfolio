@@ -141,10 +141,15 @@
   gap: 5px;
   background: none;
   border: none;
-  padding: 8px;
+  padding: 10px;
   cursor: pointer;
   z-index: 101;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
 }
 
 .nav-ham span {
@@ -153,8 +158,9 @@
   height: 2px;
   background: var(--white);
   border-radius: 2px;
-  transition: transform 0.35s var(--ease-expo), opacity 0.2s ease, background 0.2s ease;
+  transition: transform 0.35s var(--ease-expo), opacity 0.2s ease;
   transform-origin: center;
+  pointer-events: none;
 }
 
 .nav-ham.open span:nth-child(1) {
@@ -170,7 +176,7 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile menu — uses visibility + opacity instead of display:none */
+/* Mobile menu */
 .nav-mobile {
   position: fixed;
   inset: 0;
@@ -183,17 +189,16 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  /* Use visibility + opacity so CSS transitions work */
-  visibility: hidden;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .nav-mobile.open {
-  visibility: visible;
   opacity: 1;
-  pointer-events: all;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .nav-mobile a {
@@ -202,13 +207,15 @@
   font-weight: 900;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
-  transition: color var(--t-fast), transform var(--t-fast);
-  padding: 8px 20px;
+  padding: 12px 32px;
   display: block;
   width: 100%;
   text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: color 0.2s ease;
 }
 
 .nav-mobile a:hover,

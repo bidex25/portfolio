@@ -29,12 +29,42 @@
         const mobileNav = document.querySelector('.nav-mobile');
         let menuOpen = false;
 
-        function openMenu() { menuOpen = true; ham?.classList.add('open'); mobileNav?.classList.add('open'); document.body.style.overflow = 'hidden'; }
-        function closeMenu() { menuOpen = false; ham?.classList.remove('open'); mobileNav?.classList.remove('open'); document.body.style.overflow = ''; }
+        function openMenu() {
+            menuOpen = true;
+            ham?.classList.add('open');
+            mobileNav?.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            ham?.setAttribute('aria-expanded', 'true');
+        }
 
-        ham?.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
-        document.querySelectorAll('.nav-mobile a').forEach(a => a.addEventListener('click', closeMenu));
-        document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) closeMenu(); });
+        function closeMenu() {
+            menuOpen = false;
+            ham?.classList.remove('open');
+            mobileNav?.classList.remove('open');
+            document.body.style.overflow = '';
+            ham?.setAttribute('aria-expanded', 'false');
+        }
+
+        function toggleMenu(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            menuOpen ? closeMenu() : openMenu();
+        }
+
+        // Both click and touchend for reliable mobile response
+        ham?.addEventListener('click', toggleMenu);
+        ham?.addEventListener('touchend', toggleMenu, { passive: false });
+
+        // Close when a nav link is tapped
+        document.querySelectorAll('.nav-mobile a').forEach(a => {
+            a.addEventListener('click', closeMenu);
+            a.addEventListener('touchend', closeMenu, { passive: true });
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && menuOpen) closeMenu();
+        });
 
         /* ---- CV download ---- */
         document.getElementById('btn-cv')?.addEventListener('click', () => {
