@@ -284,7 +284,7 @@
     }
 }
 
-/* ---- Stats bar ---- */
+/* ---- Tools bar (replaces stats) ---- */
 .hero-stats {
     position: relative;
     z-index: 1;
@@ -301,52 +301,47 @@
     background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4) 30%, rgba(212, 175, 55, 0.4) 70%, transparent);
 }
 
-.hero-stats-row {
+.hero-tools-row {
     display: flex;
-}
-
-.hero-stat {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: 24px 20px;
-    position: relative;
-    transition: background var(--t-fast);
+    gap: 20px;
+    padding: 18px 0;
+    flex-wrap: wrap;
 }
 
-.hero-stat:hover {
-    background: rgba(212, 175, 55, 0.04);
-}
-
-.hero-stat+.hero-stat::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 22%;
-    bottom: 22%;
-    width: 1px;
-    background: rgba(212, 175, 55, 0.12);
-}
-
-.stat-num {
+.hero-tool-label {
     font-family: var(--font-head);
-    font-size: clamp(26px, 3.5vw, 42px);
-    font-weight: 900;
-    letter-spacing: -0.03em;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--gold);
-    line-height: 1;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-.stat-label {
-    font-family: var(--font-body);
+.hero-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.hero-tools span {
+    font-family: var(--font-head);
     font-size: 11px;
-    font-weight: 500;
-    color: var(--gray-dim);
+    font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+    color: var(--gray-dim);
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: color var(--t-fast), background var(--t-fast);
+}
+
+.hero-tools span:hover {
+    color: var(--white);
+    background: rgba(212, 175, 55, 0.1);
 }
 
 /* ---- Intro Strip ---- */
@@ -586,16 +581,18 @@
     }
 
     /* Stats bar */
-    .hero-stats-row {
-        flex-wrap: wrap;
+    .hero-tools-row {
+        gap: 12px;
+        padding: 14px 0;
     }
 
-    .hero-stat {
-        flex: 1 1 50%;
+    .hero-tool-label {
+        font-size: 10px;
     }
 
-    .hero-stat+.hero-stat::before {
-        display: none;
+    .hero-tools span {
+        font-size: 10px;
+        padding: 4px 10px;
     }
 
     /* Buttons stack */
@@ -651,17 +648,6 @@
         font-size: 11px;
     }
 
-    .stat-num {
-        font-size: clamp(22px, 6vw, 32px);
-    }
-
-    .stat-label {
-        font-size: 10px;
-    }
-
-    .hero-stat {
-        padding: 16px 10px;
-    }
 
     /* Eyebrow text smaller */
     .hero-eyebrow {
