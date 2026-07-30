@@ -763,12 +763,6 @@
     display: inline-block;
 }
 
-@media (max-width: 900px) {
-    .testimonials-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
 @media (max-width: 580px) {
     .testimonials-grid {
         grid-template-columns: 1fr;
@@ -1007,6 +1001,13 @@
 
     .about-photo-banner-overlay h3 {
         font-size: clamp(18px, 5vw, 28px);
+    }
+
+    /* Prevent iOS from zooming in on form focus */
+    .fg input,
+    .fg select,
+    .fg textarea {
+        font-size: 16px;
     }
 }
 
