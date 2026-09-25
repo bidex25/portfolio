@@ -37,7 +37,7 @@ export default function Hero() {
       />
 
       {/* ── Content grid ── */}
-      <div className="section-inner relative z-10 w-full" style={{ paddingTop: '100px', paddingBottom: '140px' }}>
+      <div className="section-inner relative z-10 w-full" style={{ paddingTop: 'clamp(80px, 12vw, 100px)', paddingBottom: 'clamp(60px, 10vw, 140px)' }}>
         <div
           className="w-full grid items-center gap-10 hero-grid-responsive"
           style={{ gridTemplateColumns: 'minmax(0,1fr) clamp(280px,35vw,420px)' }}
@@ -122,9 +122,9 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* ── Right: Photo (rectangular, like original) ── */}
+          {/* ── Right: Photo ── */}
           <motion.div
-            className="relative hidden md:block"
+            className="relative order-first md:order-none"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
@@ -136,7 +136,7 @@ export default function Hero() {
             />
 
             <div
-              className="relative overflow-hidden"
+              className="relative overflow-hidden max-h-72 sm:max-h-96 md:max-h-none"
               style={{ aspectRatio: '3/4', borderRadius: 4 }}
             >
               <img
