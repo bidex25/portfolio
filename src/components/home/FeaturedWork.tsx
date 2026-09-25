@@ -1,4 +1,4 @@
-import { ExternalLink, ArrowRight } from 'lucide-react'
+import { ExternalLink, Github, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { StaggerContainer, StaggerItem } from '@/components/ui/SectionReveal'
@@ -63,15 +63,30 @@ export default function FeaturedWork() {
                   </div>
                   <h3 className="font-poppins font-bold text-white mb-2" style={{ fontSize: 18 }}>{project.title}</h3>
                   <p className="leading-relaxed mb-4 flex-1" style={{ color: 'rgba(224,224,224,0.7)', fontSize: 14, fontFamily: 'Inter' }}>{project.solution}</p>
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-medium"
-                    style={{ color: '#D4AF37', fontSize: 13, fontFamily: 'Inter' }}
-                  >
-                    Live Site <ExternalLink size={13} />
-                  </a>
+                  <div className="flex items-center gap-4">
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 font-medium"
+                      style={{ color: '#D4AF37', fontSize: 13, fontFamily: 'Inter' }}
+                    >
+                      Live Site <ExternalLink size={13} />
+                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-medium"
+                        style={{ color: '#A0A0A0', fontSize: 13, fontFamily: 'Inter', transition: 'color 200ms' }}
+                        onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}
+                        onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = '#A0A0A0'}
+                      >
+                        Source <Github size={13} />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </StaggerItem>

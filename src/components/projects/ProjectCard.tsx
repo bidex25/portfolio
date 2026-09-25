@@ -1,4 +1,4 @@
-import { ExternalLink, Target, User, TrendingUp, Lightbulb } from 'lucide-react'
+import { ExternalLink, Github, Target, User, TrendingUp, Lightbulb } from 'lucide-react'
 import type { Project } from '@/types'
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -67,15 +67,30 @@ export default function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
 
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 font-medium"
-          style={{ color: '#D4AF37', fontSize: 13, fontFamily: 'Inter', textDecoration: 'none' }}
-        >
-          View Live Site <ExternalLink size={13} />
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-medium"
+            style={{ color: '#D4AF37', fontSize: 13, fontFamily: 'Inter', textDecoration: 'none' }}
+          >
+            Live Site <ExternalLink size={13} />
+          </a>
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-medium"
+              style={{ color: '#A0A0A0', fontSize: 13, fontFamily: 'Inter', textDecoration: 'none', transition: 'color 200ms' }}
+              onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}
+              onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = '#A0A0A0'}
+            >
+              Source <Github size={13} />
+            </a>
+          )}
+        </div>
       </div>
     </article>
   )

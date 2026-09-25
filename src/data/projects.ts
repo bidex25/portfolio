@@ -21,6 +21,7 @@ export const projects: Project[] = [
     id: 'bms',
     title: 'Business Management System',
     url: 'https://reports.digitalworldtech.academy',
+    github: 'https://github.com/bidex25/reports-dashboard',
     image: '/assets/img/proj-bizmanager.webp',
     tags: ['React', 'TypeScript', 'PHP', 'MySQL'],
     client: 'Digital World Tech Academy',

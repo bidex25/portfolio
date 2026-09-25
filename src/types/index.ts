@@ -4,6 +4,7 @@ export interface Project {
   id: string
   title: string
   url: string
+  github?: string
   image: string
   tags: string[]
   client?: string
