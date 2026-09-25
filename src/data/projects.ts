@@ -69,6 +69,21 @@ export const projects: Project[] = [
       'Product launched and onboarded early business users across Nigeria. Businesses can set up a full WhatsApp storefront in under 10 minutes.',
   },
   {
+    id: 'fomglobal',
+    title: 'FOMGLOBAL KlinServices',
+    url: 'https://fomglobalklinservices.com',
+    image: '/assets/img/proj-fomglobal.webp',
+    tags: ['HTML5', 'CSS3', 'JavaScript'],
+    client: 'FOMGLOBAL KlinServices, Lagos',
+    role: 'Web Developer',
+    problem:
+      'A Lagos-based environmental and sanitation company had no digital presence, making it difficult to attract corporate clients and government contracts.',
+    solution:
+      'Designed and built a professional marketing site with service pages, a gallery, company profile, and a contact/quote request form.',
+    result:
+      'The client now has a credible online presence they use to pitch corporate clients and include in tender documents.',
+  },
+  {
     id: 'bestmobile',
     title: 'Best Mobile',
     url: 'https://bestmobile-admin-website.vercel.app',
