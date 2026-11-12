@@ -16,6 +16,7 @@ export const projects: Project[] = [
     result:
       'The platform now enrolls 100+ students monthly. Students self-enroll, track progress, and receive digital certificates automatically — no manual admin required.',
     featured: true,
+    category: 'webdev',
   },
   {
     id: 'bms',
@@ -35,6 +36,7 @@ export const projects: Project[] = [
     learned:
       'RBAC across nested subsidiaries required a careful permission model — used a hierarchical roles table with scoped access rather than flat permission flags.',
     featured: true,
+    category: 'webdev',
   },
   {
     id: 'device-care',
@@ -52,6 +54,7 @@ export const projects: Project[] = [
       'Launched in under 3 weeks. The client now receives online bookings daily and processes payments without manual follow-up — eliminating the phone-only bottleneck entirely.',
     learned:
       "Paystack's GHS currency handling required custom gateway configuration beyond the standard WooCommerce setup.",
+    category: 'webdev',
   },
   {
     id: 'qaxum',
@@ -67,6 +70,7 @@ export const projects: Project[] = [
       'Built the React frontend for Qaxum — a platform that lets businesses create digital business cards and WhatsApp-powered stores with a drag-and-drop builder and shareable links.',
     result:
       'Product launched and onboarded early business users across Nigeria. Businesses can set up a full WhatsApp storefront in under 10 minutes.',
+    category: 'webdev',
   },
   {
     id: 'fomglobal',
@@ -82,6 +86,7 @@ export const projects: Project[] = [
       'Designed and built a professional marketing site with service pages, a gallery, company profile, and a contact/quote request form.',
     result:
       'The client now has a credible online presence they use to pitch corporate clients and include in tender documents.',
+    category: 'webdev',
   },
   {
     id: 'bestmobile',
@@ -97,6 +102,23 @@ export const projects: Project[] = [
       'Built the customer-facing React frontend for Best Mobile, including service booking flow, Stripe payment integration, technician availability display, and job status tracking.',
     result:
       'Delivered a complete booking-to-payment frontend — from service selection through Stripe checkout to live job tracking — and deployed to Vercel. Stripe integration validated end-to-end.',
+    category: 'webdev',
+  },
+  {
+    id: 'dwta-seo',
+    title: 'Local SEO - Digital World Tech Academy',
+    url: 'https://www.google.com/maps/search/tech+schools+in+ikorodu',
+    image: '/assets/img/proj-dwta-seo.png',
+    tags: ['Local SEO', 'Google Business Profile', 'Review Strategy'],
+    client: 'Digital World Tech Academy, Ikorodu (3 branches)',
+    role: 'Regional Digital Marketing Manager',
+    problem:
+      'Three Digital World Tech Academy branches in Ikorodu were competing for students in the same local market with low visibility on Google Search and Maps.',
+    solution:
+      'Managed Google Business Profiles across all 3 branches — optimised listings and categories, ran student review generation campaigns, and built local backlinks to strengthen each profile authority.',
+    result:
+      'The Agric branch now holds the #1 spot in Ikorodu for "tech schools in Ikorodu", consistently outranking all competitors. All 3 DWTA branches appear in the local pack, dominating the category. Currently pushing the Benson branch to rank higher as regional manager.',
+    category: 'marketing',
   },
 ]
 

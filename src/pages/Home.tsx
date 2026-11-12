@@ -5,7 +5,6 @@ import FeaturedWork from '@/components/home/FeaturedWork'
 import MarketingSection from '@/components/home/MarketingSection'
 import WhyMe from '@/components/home/WhyMe'
 import Process from '@/components/home/Process'
-import Testimonials from '@/components/home/Testimonials'
 import CTABanner from '@/components/home/CTABanner'
 
 export default function Home() {
@@ -18,7 +17,6 @@ export default function Home() {
       <MarketingSection />
       <WhyMe />
       <Process />
-      <Testimonials />
       <CTABanner />
     </>
   )

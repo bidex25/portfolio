@@ -1,6 +1,6 @@
 import { ArrowRight, Megaphone, Search, Music, BarChart2, LineChart, Smartphone, PenLine, Target, type LucideIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import SectionReveal, { StaggerContainer, StaggerItem } from '@/components/ui/SectionReveal'
+import SectionReveal, { StaggerContainer, StaggerItem, TextReveal } from '@/components/ui/SectionReveal'
 
 interface Skill { icon: LucideIcon; title: string; desc: string }
 
@@ -21,8 +21,9 @@ export default function MarketingSection() {
       <div className="section-inner">
         <SectionReveal className="mb-14">
           <span className="eyebrow">How I Grow Businesses</span>
-          <h2 className="h2-fluid font-poppins font-black text-white">
-            Digital <span style={{ color: '#D4AF37' }}>Marketing</span>
+          <h2 className="h2-fluid font-poppins font-black text-white" style={{ display: 'flex', flexWrap: 'wrap', gap: '0 0.28em' }}>
+            <TextReveal as="span" text="Digital" delay={0.05} inline />
+            <TextReveal as="span" text="Marketing" delay={0.18} inline style={{ color: '#D4AF37' }} />
           </h2>
           <div className="gold-divider" />
           <p className="max-w-xl leading-relaxed" style={{ color: 'rgba(224,224,224,0.75)', fontSize: 'clamp(14px,1.3vw,16px)' }}>

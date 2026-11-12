@@ -1,8 +1,7 @@
 import { ExternalLink, Github, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { StaggerContainer, StaggerItem } from '@/components/ui/SectionReveal'
-import SectionReveal from '@/components/ui/SectionReveal'
+import SectionReveal, { StaggerContainer, StaggerItem, TextReveal } from '@/components/ui/SectionReveal'
 import { featuredProjects } from '@/data/projects'
 
 export default function FeaturedWork() {
@@ -11,8 +10,9 @@ export default function FeaturedWork() {
       <div className="section-inner">
         <SectionReveal className="mb-14">
           <span className="eyebrow">What I Build</span>
-          <h2 className="h2-fluid font-poppins font-black text-white">
-            Web <span style={{ color: '#D4AF37' }}>Development</span>
+          <h2 className="h2-fluid font-poppins font-black text-white" style={{ display: 'flex', flexWrap: 'wrap', gap: '0 0.28em' }}>
+            <TextReveal as="span" text="Web" delay={0.05} inline />
+            <TextReveal as="span" text="Development" delay={0.16} inline style={{ color: '#D4AF37' }} />
           </h2>
           <div className="gold-divider" />
           <p className="max-w-xl leading-relaxed" style={{ color: 'rgba(224,224,224,0.75)', fontSize: 'clamp(14px,1.3vw,16px)' }}>

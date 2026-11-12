@@ -1,6 +1,6 @@
 import { MessageCircle, Mail } from 'lucide-react'
 import { motion } from 'framer-motion'
-import SectionReveal from '@/components/ui/SectionReveal'
+import SectionReveal, { TextReveal } from '@/components/ui/SectionReveal'
 import MagneticButton from '@/components/ui/MagneticButton'
 
 export default function CTABanner() {
@@ -31,8 +31,8 @@ export default function CTABanner() {
           className="font-poppins font-black text-white mb-6"
           style={{ fontSize: 'clamp(36px, 6vw, 72px)', lineHeight: 1.05, letterSpacing: '-0.02em' }}
         >
-          Let's Build Something<br />
-          <span style={{ color: '#D4AF37' }}>That Works</span>
+          <TextReveal as="span" text="Let's Build Something" delay={0.05} />
+          <TextReveal as="span" text="That Works" delay={0.26} style={{ color: '#D4AF37' }} />
         </h2>
         <p className="mb-10 leading-relaxed" style={{ color: 'rgba(224,224,224,0.7)', fontSize: 'clamp(15px,1.4vw,18px)', maxWidth: 520, margin: '0 auto 40px' }}>
           Whether you're starting from scratch or scaling up — I'm based in Lagos (GMT+1) and

@@ -4,7 +4,7 @@ import { Home } from 'lucide-react'
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
-      <p className="font-cormorant text-8xl font-bold text-gold/20 mb-4">404</p>
+      <p className="font-cormorant text-8xl font-bold text-gold/40 mb-4">404</p>
       <h1 className="font-poppins font-black text-3xl text-white mb-2">Page Not Found</h1>
       <p className="text-gray-dim font-inter mb-8">
         This page doesn't exist — or maybe it moved.

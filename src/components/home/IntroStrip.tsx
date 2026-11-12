@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Globe, Megaphone, Layout, TrendingUp, type LucideIcon } from 'lucide-react'
-import { StaggerContainer, StaggerItem } from '@/components/ui/SectionReveal'
+import { StaggerContainer, StaggerItem, TextReveal } from '@/components/ui/SectionReveal'
 import TiltCard from '@/components/ui/TiltCard'
 
 interface Card { icon: LucideIcon; title: string; desc: string }
@@ -27,7 +27,9 @@ export default function IntroStrip() {
           >
             <span className="eyebrow">Who I Am</span>
             <h2 className="h2-fluid font-poppins font-black text-white mb-0">
-              Developer.<br />Marketer.<br />Strategist.
+              <TextReveal as="span" text="Developer." delay={0.1} />
+              <TextReveal as="span" text="Marketer." delay={0.26} />
+              <TextReveal as="span" text="Strategist." delay={0.42} />
             </h2>
             <div className="gold-divider" />
             <p className="leading-relaxed mb-8" style={{ fontSize: 'clamp(14px,1.3vw,16px)', color: 'rgba(224,224,224,0.8)' }}>

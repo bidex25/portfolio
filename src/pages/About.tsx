@@ -1,6 +1,6 @@
 import { MapPin, Clock } from 'lucide-react'
 import { motion } from 'framer-motion'
-import SectionReveal, { StaggerContainer, StaggerItem } from '@/components/ui/SectionReveal'
+import SectionReveal, { StaggerContainer, StaggerItem, TextReveal } from '@/components/ui/SectionReveal'
 import CertificationCard from '@/components/about/CertificationCard'
 import { skills } from '@/data/skills'
 import { certifications } from '@/data/certifications'
@@ -20,7 +20,8 @@ export default function About() {
               className="font-poppins font-black text-white"
               style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', letterSpacing: '-0.02em', lineHeight: 1.05 }}
             >
-              The Developer Who<br />Thinks Like a Marketer
+              <TextReveal as="span" text="The Developer Who" delay={0.1} />
+              <TextReveal as="span" text="Thinks Like a Marketer" delay={0.3} />
             </h1>
           </SectionReveal>
         </div>
@@ -128,7 +129,7 @@ export default function About() {
         <div className="section-inner">
           <SectionReveal className="mb-14">
             <span className="eyebrow">Technical Skills</span>
-            <h2 className="h2-fluid font-poppins font-black text-white">What I Work With</h2>
+            <TextReveal as="h2" text="What I Work With" delay={0.05} className="h2-fluid font-poppins font-black text-white" />
             <div className="gold-divider" />
           </SectionReveal>
 
@@ -178,7 +179,7 @@ export default function About() {
         <div className="section-inner">
           <SectionReveal className="mb-10">
             <span className="eyebrow">Credentials</span>
-            <h2 className="h2-fluid font-poppins font-black text-white">Certifications</h2>
+            <TextReveal as="h2" text="Certifications" delay={0.05} className="h2-fluid font-poppins font-black text-white" />
             <div className="gold-divider" />
           </SectionReveal>
 
@@ -207,8 +208,9 @@ export default function About() {
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.5) 50%, rgba(5,5,5,0.9) 100%)' }} />
         <SectionReveal className="relative z-10 text-center section-inner py-20">
-          <h2 className="h2-fluid font-poppins font-black text-white mb-6">
-            Ready to <span style={{ color: '#D4AF37' }}>Collaborate?</span>
+          <h2 className="h2-fluid font-poppins font-black text-white mb-6" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0 0.28em' }}>
+            <TextReveal as="span" text="Ready to" delay={0.05} inline />
+            <TextReveal as="span" text="Collaborate?" delay={0.2} inline style={{ color: '#D4AF37' }} />
           </h2>
           <p className="mb-8 leading-relaxed" style={{ color: 'rgba(224,224,224,0.75)', fontSize: 'clamp(15px,1.4vw,18px)', maxWidth: 480, margin: '0 auto 32px' }}>
             Let's build something that grows your business.

@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, ChevronDown, Download } from 'lucide-react'
+import { Menu, X, MessageCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
@@ -11,124 +11,141 @@ const navLinks = [
   { label: 'Contact',  path: '/contact' },
 ]
 
-const cvOptions = [
-  { label: 'Web Dev CV',      file: '/assets/cv-webdev.pdf',    name: 'Abidemi-Abolaji-WebDev-CV.pdf' },
-  { label: 'Marketing CV',    file: '/assets/cv-marketing.pdf', name: 'Abidemi-Abolaji-Marketing-CV.pdf' },
-  { label: 'Combined Resume', file: '/assets/resume.pdf',       name: 'Abidemi-Abolaji-Resume.pdf' },
-]
+const WA_LINK = 'https://wa.me/2348086506919?text=Hi%20Abidemi%2C%20I%27d%20like%20to%20discuss%20a%20project.'
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false)
-  const [menuOpen, setMenuOpen]   = useState(false)
-  const [cvOpen, setCvOpen]       = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
-  const cvRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
+    const onScroll = () => setScrolled(window.scrollY > 72)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { setMenuOpen(false); setCvOpen(false) }
+      if (e.key === 'Escape') { setMenuOpen(false) }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  useEffect(() => {
-    const onClick = (e: MouseEvent) => {
-      if (cvRef.current && !cvRef.current.contains(e.target as Node)) setCvOpen(false)
-    }
-    document.addEventListener('mousedown', onClick)
-    return () => document.removeEventListener('mousedown', onClick)
-  }, [])
-
-  // Close mobile menu on route change
   useEffect(() => { setMenuOpen(false) }, [location.pathname])
 
-  function handleCvDownload(file: string, name: string) {
-    const a = document.createElement('a')
-    a.href = file
-    a.download = name
-    a.click()
-    setCvOpen(false)
-  }
+  const ease = [0.16, 1, 0.3, 1] as const
+  const dur  = 0.9
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-black/90 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.5)]' : 'bg-transparent'
-        }`}
+      {/* ── Desktop nav ── */}
+      <motion.nav
+        className="fixed top-0 left-0 right-0 z-50 hidden md:flex justify-center pointer-events-none"
+        animate={{ paddingTop: scrolled ? 14 : 0 }}
+        transition={{ duration: dur, ease }}
       >
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="font-poppins font-black text-xl tracking-tight">
-            <span className="text-white">Bidex</span>
-            <span className="text-gold">Tech</span>
-          </Link>
+        <motion.div
+          className="pointer-events-auto flex items-center overflow-hidden w-full"
+          animate={{
+            maxWidth:         scrolled ? 560  : 1160,
+            paddingLeft:      scrolled ? 22   : 24,
+            paddingRight:     scrolled ? 22   : 24,
+            paddingTop:       scrolled ? 9    : 0,
+            paddingBottom:    scrolled ? 9    : 0,
+            height:           scrolled ? 50   : 64,
+            borderRadius:     scrolled ? 100  : 0,
+            backgroundColor:  scrolled ? 'rgba(6,6,6,0.92)'          : 'rgba(0,0,0,0)',
+            borderColor:      scrolled ? 'rgba(255,255,255,0.11)'     : 'rgba(255,255,255,0)',
+            boxShadow:        scrolled ? '0 8px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06)'
+                                       : '0 0px 0px rgba(0,0,0,0)',
+          }}
+          style={{ borderWidth: 1, borderStyle: 'solid', backdropFilter: scrolled ? 'blur(20px)' : 'none' }}
+          transition={{ duration: dur, ease }}
+        >
+          {/* Logo — exits when pill forms */}
+          <AnimatePresence mode="popLayout" initial={false}>
+            {!scrolled && (
+              <motion.div
+                key="logo"
+                initial={{ opacity: 0, width: 0 }}
+                animate={{ opacity: 1, width: 'auto' }}
+                exit={{ opacity: 0, width: 0, marginRight: 0 }}
+                transition={{ duration: 0.6, ease }}
+                style={{ overflow: 'hidden', flexShrink: 0, marginRight: 'auto', whiteSpace: 'nowrap' }}
+              >
+                <Link to="/" className="font-poppins font-black text-xl tracking-tight">
+                  <span className="text-white">Bidex</span>
+                  <span style={{ color: '#D4AF37' }}>Tech</span>
+                </Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Nav links */}
+          <motion.div
+            className="flex items-center"
+            animate={{ gap: scrolled ? 0 : 4, marginLeft: scrolled ? 'auto' : 0, marginRight: scrolled ? 'auto' : 0 }}
+            transition={{ duration: dur, ease }}
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-full text-sm font-inter transition-colors duration-200 ${
-                  location.pathname === link.path
-                    ? 'text-gold'
-                    : 'text-gray-dim hover:text-white'
-                }`}
+                className="rounded-full font-inter transition-colors duration-200 whitespace-nowrap"
+                style={{
+                  padding: scrolled ? '6px 14px' : '8px 16px',
+                  fontSize: scrolled ? 13 : 14,
+                  color: location.pathname === link.path ? '#D4AF37' : 'rgba(160,160,160,0.9)',
+                  transition: 'color 200ms, padding 900ms cubic-bezier(0.16,1,0.3,1), font-size 900ms cubic-bezier(0.16,1,0.3,1)',
+                }}
+                onMouseEnter={e => { if (location.pathname !== link.path) (e.currentTarget as HTMLAnchorElement).style.color = '#fff' }}
+                onMouseLeave={e => { if (location.pathname !== link.path) (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(160,160,160,0.9)' }}
               >
                 {link.label}
               </Link>
             ))}
+          </motion.div>
 
-            {/* CV Dropdown */}
-            <div ref={cvRef} className="relative ml-2">
-              <button
-                onClick={() => setCvOpen((v) => !v)}
-                className="flex items-center gap-1.5 px-5 py-2 rounded-full border border-gold/40 text-sm text-white hover:border-gold hover:text-gold transition-colors duration-200"
-              >
-                Download CV <ChevronDown size={14} className={`transition-transform ${cvOpen ? 'rotate-180' : ''}`} />
-              </button>
-              <AnimatePresence>
-                {cvOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-2 w-52 bg-charcoal border border-white/10 rounded-xl shadow-xl overflow-hidden"
-                  >
-                    {cvOptions.map((cv) => (
-                      <button
-                        key={cv.file}
-                        onClick={() => handleCvDownload(cv.file, cv.name)}
-                        className="flex items-center gap-2 w-full px-4 py-3 text-sm text-gray-DEFAULT hover:bg-white/5 hover:text-gold transition-colors text-left"
-                      >
-                        <Download size={13} className="shrink-0" />
-                        {cv.label}
-                      </button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Toggle menu"
+          {/* CTA */}
+          <motion.div
+            animate={{ marginLeft: scrolled ? 10 : 8 }}
+            transition={{ duration: dur, ease }}
+            style={{ flexShrink: 0 }}
           >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 rounded-full text-white whitespace-nowrap"
+              style={{
+                padding: scrolled ? '6px 16px' : '8px 20px',
+                fontSize: scrolled ? 12 : 13,
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 600,
+                background: '#D4AF37',
+                color: '#050505',
+                transition: 'padding 900ms cubic-bezier(0.16,1,0.3,1), opacity 200ms',
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.88' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1' }}
+            >
+              <MessageCircle size={13} />
+              {scrolled ? 'Hire Me' : "Let's Work"}
+            </a>
+          </motion.div>
+        </motion.div>
+      </motion.nav>
+
+      {/* ── Mobile nav ── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 md:hidden flex items-center justify-between px-5 h-14"
+           style={{ background: scrolled ? 'rgba(5,5,5,0.9)' : 'transparent', backdropFilter: scrolled ? 'blur(16px)' : 'none', borderBottom: scrolled ? '1px solid rgba(255,255,255,0.07)' : 'none', transition: 'background 300ms, border 300ms' }}>
+        <Link to="/" className="font-poppins font-black text-lg tracking-tight">
+          <span className="text-white">Bidex</span><span style={{ color: '#D4AF37' }}>Tech</span>
+        </Link>
+        <button className="text-white p-2" onClick={() => setMenuOpen((v) => !v)} aria-label="Toggle menu">
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </nav>
 
       {/* Mobile menu overlay */}
@@ -139,7 +156,8 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'tween', duration: 0.28 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md flex flex-col pt-20 px-8 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col pt-20 px-8 md:hidden"
+            style={{ background: 'rgba(5,5,5,0.97)', backdropFilter: 'blur(20px)' }}
           >
             {navLinks.map((link, i) => (
               <motion.div
@@ -150,24 +168,23 @@ export default function Navbar() {
               >
                 <Link
                   to={link.path}
-                  className={`block py-4 text-2xl font-poppins font-bold border-b border-white/10 ${
-                    location.pathname === link.path ? 'text-gold' : 'text-white'
-                  }`}
+                  className="block py-4 text-2xl font-poppins font-bold"
+                  style={{ borderBottom: '1px solid rgba(255,255,255,0.08)', color: location.pathname === link.path ? '#D4AF37' : '#fff' }}
                 >
                   {link.label}
                 </Link>
               </motion.div>
             ))}
-            <div className="mt-8 flex flex-col gap-3">
-              {cvOptions.map((cv) => (
-                <button
-                  key={cv.file}
-                  onClick={() => handleCvDownload(cv.file, cv.name)}
-                  className="flex items-center gap-2 text-gray-dim hover:text-gold transition-colors text-sm py-2"
-                >
-                  <Download size={14} /> {cv.label}
-                </button>
-              ))}
+            <div className="mt-8">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-4 rounded-full font-poppins font-bold text-sm"
+                style={{ background: '#D4AF37', color: '#050505' }}
+              >
+                <MessageCircle size={16} /> Let's Work Together
+              </a>
             </div>
           </motion.div>
         )}

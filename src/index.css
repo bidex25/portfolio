@@ -8,7 +8,7 @@
 @layer base {
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; overflow-x: hidden; }
+  html { overflow-x: hidden; }
 
   body {
     background: #050505;
@@ -205,17 +205,3 @@
   }
 }
 
-/* ── Cursor glow (desktop only) ──────────────────── */
-@media (pointer: fine) {
-  .cursor-glow {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 65%);
-    transform: translate(-50%, -50%);
-    transition: transform 0.08s linear;
-  }
-}

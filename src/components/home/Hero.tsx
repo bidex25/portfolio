@@ -1,76 +1,49 @@
-import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { MessageCircle, ArrowRight } from 'lucide-react'
-import MatrixBackground from '@/components/ui/MatrixBackground'
+import GradientBackground from '@/components/ui/GradientBackground'
+import ParticleField from '@/components/ui/ParticleField'
+import { TextReveal } from '@/components/ui/SectionReveal'
 
 export default function Hero() {
-  const cursorRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const el = cursorRef.current
-    if (!el || window.matchMedia('(pointer: coarse)').matches) return
-    const move = (e: MouseEvent) => {
-      el.style.left = e.clientX + 'px'
-      el.style.top  = e.clientY + 'px'
-    }
-    window.addEventListener('mousemove', move, { passive: true })
-    return () => window.removeEventListener('mousemove', move)
-  }, [])
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden bg-black"
-      style={{
-        background: 'radial-gradient(ellipse 60% 80% at -10% -10%, rgba(212,175,55,0.04) 0%, transparent 70%), #050505',
-      }}
+      className="relative min-h-screen flex items-center overflow-hidden"
+      style={{ background: '#030303' }}
     >
-      {/* Cursor glow */}
-      <div ref={cursorRef} className="cursor-glow" aria-hidden="true" />
-
-      <MatrixBackground />
-
-      {/* Gradient vignette */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(135deg, rgba(5,5,5,0.7) 0%, rgba(5,5,5,0.2) 50%, rgba(5,5,5,0.8) 100%)' }}
-      />
+      <GradientBackground />
+      <ParticleField />
 
       {/* ── Content grid ── */}
-      <div className="section-inner relative z-10 w-full" style={{ paddingTop: 'clamp(80px, 12vw, 100px)', paddingBottom: 'clamp(60px, 10vw, 140px)' }}>
+      <div
+        className="section-inner relative z-10 w-full"
+        style={{ paddingTop: 'clamp(80px, 12vw, 100px)', paddingBottom: 'clamp(60px, 10vw, 140px)' }}
+      >
         <div
-          className="w-full grid items-center gap-10 hero-grid-responsive"
-          style={{ gridTemplateColumns: 'minmax(0,1fr) clamp(280px,35vw,420px)' }}
+          className="w-full grid items-center hero-grid-responsive"
+          style={{ gridTemplateColumns: 'minmax(0,1fr) clamp(260px,32vw,400px)', gap: 'clamp(32px, 6vw, 80px)' }}
         >
           {/* ── Left: Text ── */}
           <div>
-            {/* Eyebrow */}
+            {/* Eyebrow — Cormorant italic, gold */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-3 mb-5"
             >
-              <span className="w-8 h-px bg-gold block shrink-0" />
-              <span
-                className="eyebrow"
-                style={{ margin: 0, fontSize: 'clamp(13px, 1.2vw, 15px)', fontStyle: 'normal', fontFamily: 'Inter', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#A0A0A0' }}
-              >
+              <span className="w-8 h-px bg-gold block shrink-0" style={{ background: '#D4AF37' }} />
+              <span className="eyebrow" style={{ margin: 0, fontSize: 'clamp(13px, 1.1vw, 15px)' }}>
                 Based in Lagos, Nigeria
               </span>
             </motion.div>
 
             {/* Title */}
-            <motion.h1
-              className="h1-fluid font-poppins font-black uppercase leading-none mb-6"
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <span className="block text-white whitespace-nowrap">I Build.</span>
-              <span className="block gold-shimmer whitespace-nowrap">I Market.</span>
-              <span className="block text-white whitespace-nowrap">I Ship.</span>
-            </motion.h1>
+            <h1 className="h1-fluid font-poppins font-black uppercase leading-none mb-6">
+              <TextReveal text="I Build." className="text-white whitespace-nowrap" delay={0.15} />
+              <TextReveal text="I Market." className="gold-shimmer whitespace-nowrap" delay={0.3} />
+              <TextReveal text="I Deliver." className="text-white whitespace-nowrap" delay={0.45} />
+            </h1>
 
             {/* Description */}
             <motion.p
@@ -125,30 +98,42 @@ export default function Hero() {
           {/* ── Right: Photo ── */}
           <motion.div
             className="relative order-first md:order-none"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Subtle gold glow behind photo */}
+            {/* Gold glow halo behind photo */}
             <div
-              className="absolute inset-0 -z-10"
-              style={{ background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.08) 0%, transparent 70%)', borderRadius: 4 }}
+              className="absolute -inset-4 -z-10 rounded-xl"
+              style={{ background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.12) 0%, transparent 68%)' }}
             />
 
             <div
               className="relative overflow-hidden max-h-72 sm:max-h-96 md:max-h-none"
-              style={{ aspectRatio: '3/4', borderRadius: 4 }}
+              style={{ aspectRatio: '3/4', borderRadius: 6 }}
             >
               <img
                 src="/assets/img/studio.webp"
                 alt="Abidemi Abolaji — BidexTech"
                 className="w-full h-full object-cover object-center"
-                style={{ filter: 'brightness(0.95) contrast(1.03)' }}
+                style={{ filter: 'brightness(0.92) contrast(1.05)' }}
+              />
+
+              {/* Left-edge fade — blends photo into background */}
+              <div
+                className="absolute inset-y-0 left-0 w-2/5 pointer-events-none z-10"
+                style={{ background: 'linear-gradient(to right, #030303 0%, transparent 100%)' }}
+              />
+
+              {/* Bottom fade */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none z-10"
+                style={{ background: 'linear-gradient(to top, rgba(3,3,3,0.6) 0%, transparent 100%)' }}
               />
 
               {/* Available badge */}
               <div
-                className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl px-4 py-3"
+                className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl px-4 py-3 z-20"
                 style={{ background: 'rgba(5,5,5,0.85)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.08)' }}
               >
                 <span

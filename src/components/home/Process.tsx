@@ -1,13 +1,13 @@
 import { Users2, Palette, Settings2, Rocket, type LucideIcon } from 'lucide-react'
-import SectionReveal, { StaggerContainer, StaggerItem } from '@/components/ui/SectionReveal'
+import SectionReveal, { StaggerContainer, StaggerItem, TextReveal } from '@/components/ui/SectionReveal'
 
-interface Step { num: string; icon: LucideIcon; title: string; desc: string }
+interface Step { num: string; icon: LucideIcon; title: string; desc: string; time: string }
 
 const steps: Step[] = [
-  { num: '01', icon: Users2,    title: 'Discovery', desc: 'We talk about your business, your goals, and what success looks like. I ask the right questions so I understand exactly what you need.' },
-  { num: '02', icon: Palette,   title: 'Design',    desc: 'I plan the structure and visual direction — layout, user flow, wireframes — before writing a single line of code.' },
-  { num: '03', icon: Settings2, title: 'Build',     desc: "Clean, fast, scalable code. You get progress updates throughout — not radio silence until it's done." },
-  { num: '04', icon: Rocket,    title: 'Launch',    desc: 'We go live. I handle deployment, do a final quality check, and make sure everything works perfectly.' },
+  { num: '01', icon: Users2,    title: 'Discovery', time: 'Day 1–2',      desc: 'We talk about your business, your goals, and what success looks like. I ask the right questions so I understand exactly what you need.' },
+  { num: '02', icon: Palette,   title: 'Design',    time: 'Day 3–7',      desc: 'I plan the structure and visual direction — layout, user flow, wireframes — before writing a single line of code.' },
+  { num: '03', icon: Settings2, title: 'Build',     time: '1–4 weeks',    desc: "Clean, fast, scalable code. You get progress updates throughout — not radio silence until it's done." },
+  { num: '04', icon: Rocket,    title: 'Launch',    time: 'Final 1–2 days', desc: 'We go live. I handle deployment, do a final quality check, and make sure everything works perfectly.' },
 ]
 
 export default function Process() {
@@ -16,8 +16,9 @@ export default function Process() {
       <div className="section-inner">
         <SectionReveal className="text-center mb-14">
           <span className="eyebrow" style={{ textAlign: 'center', display: 'block' }}>My Process</span>
-          <h2 className="h2-fluid font-poppins font-black text-white">
-            How I <span style={{ color: '#D4AF37' }}>Work</span>
+          <h2 className="h2-fluid font-poppins font-black text-white" style={{ display: 'flex', flexWrap: 'wrap', gap: '0 0.28em', justifyContent: 'center' }}>
+            <TextReveal as="span" text="How I" delay={0.05} inline />
+            <TextReveal as="span" text="Work" delay={0.18} inline style={{ color: '#D4AF37' }} />
           </h2>
           <div className="gold-divider-center" />
           <p style={{ color: 'rgba(224,224,224,0.75)', fontSize: 'clamp(14px,1.3vw,16px)' }}>
@@ -58,7 +59,24 @@ export default function Process() {
                 >
                   <Icon size={18} style={{ color: '#D4AF37' }} />
                 </div>
-                <h3 className="font-poppins font-bold text-white mb-2" style={{ fontSize: 16 }}>{step.title}</h3>
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="font-poppins font-bold text-white" style={{ fontSize: 16 }}>{step.title}</h3>
+                  <span
+                    style={{
+                      padding: '2px 8px',
+                      borderRadius: 100,
+                      background: 'rgba(212,175,55,0.1)',
+                      border: '1px solid rgba(212,175,55,0.2)',
+                      color: '#D4AF37',
+                      fontSize: 10,
+                      fontFamily: 'Inter',
+                      fontWeight: 500,
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {step.time}
+                  </span>
+                </div>
                 <p style={{ color: '#A0A0A0', fontSize: 13, lineHeight: 1.7, fontFamily: 'Inter' }}>{step.desc}</p>
               </div>
             </StaggerItem>

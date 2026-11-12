@@ -14,6 +14,7 @@ export interface Project {
   result: string
   learned?: string
   featured?: boolean
+  category: 'webdev' | 'marketing'
 }
 
 export interface Service {

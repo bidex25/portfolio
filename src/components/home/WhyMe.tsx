@@ -1,5 +1,5 @@
 import { MessageSquare, Lightbulb, Zap, Target, type LucideIcon } from 'lucide-react'
-import SectionReveal, { StaggerContainer, StaggerItem } from '@/components/ui/SectionReveal'
+import SectionReveal, { StaggerContainer, StaggerItem, TextReveal } from '@/components/ui/SectionReveal'
 
 interface Reason { icon: LucideIcon; title: string; desc: string }
 
@@ -17,8 +17,8 @@ export default function WhyMe() {
         <SectionReveal className="text-center mb-14">
           <span className="eyebrow" style={{ display: 'block', textAlign: 'center' }}>Why Work With Me</span>
           <h2 className="h2-fluid font-poppins font-black text-white">
-            Not Just a Developer.<br />
-            <span style={{ color: '#D4AF37' }}>A Business Partner.</span>
+            <TextReveal as="span" text="Not Just a Developer." delay={0.05} />
+            <TextReveal as="span" text="A Business Partner." delay={0.22} style={{ color: '#D4AF37' }} />
           </h2>
           <div className="gold-divider-center" />
         </SectionReveal>

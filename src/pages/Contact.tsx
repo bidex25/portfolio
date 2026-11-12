@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import { MessageCircle, Mail, Linkedin, Github, Send, CheckCircle, AlertCircle, Clock, MapPin } from 'lucide-react'
-import SectionReveal, { StaggerContainer, StaggerItem } from '@/components/ui/SectionReveal'
+import SectionReveal, { StaggerContainer, StaggerItem, TextReveal } from '@/components/ui/SectionReveal'
 
 type FormState = 'idle' | 'sending' | 'success' | 'error'
 
@@ -73,12 +73,13 @@ export default function Contact() {
         <div className="section-inner">
           <SectionReveal>
             <span className="eyebrow">Get In Touch</span>
-            <h1
+            <TextReveal
+              as="h1"
+              text="Contact"
+              delay={0.1}
               className="font-poppins font-black text-white mb-4"
               style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', letterSpacing: '-0.02em', lineHeight: 1.05 }}
-            >
-              Contact
-            </h1>
+            />
             <div className="flex flex-wrap items-center gap-3" style={{ color: '#A0A0A0', fontSize: 14, fontFamily: 'Inter' }}>
               <span className="flex items-center gap-1.5"><MapPin size={14} style={{ color: '#D4AF37' }} /> Lagos, Nigeria</span>
               <span style={{ color: 'rgba(255,255,255,0.15)' }}>·</span>

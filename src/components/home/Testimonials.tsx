@@ -1,5 +1,5 @@
 import { Star } from 'lucide-react'
-import SectionReveal, { StaggerContainer, StaggerItem } from '@/components/ui/SectionReveal'
+import SectionReveal, { StaggerContainer, StaggerItem, TextReveal } from '@/components/ui/SectionReveal'
 import { testimonials } from '@/data/testimonials'
 
 export default function Testimonials() {
@@ -8,7 +8,7 @@ export default function Testimonials() {
       <div className="section-inner">
         <SectionReveal className="mb-14">
           <span className="eyebrow">Client Reviews</span>
-          <h2 className="h2-fluid font-poppins font-black text-white">What Clients Say</h2>
+          <TextReveal as="h2" text="What Clients Say" delay={0.05} className="h2-fluid font-poppins font-black text-white" />
           <div className="gold-divider" />
           <p style={{ color: 'rgba(224,224,224,0.65)', fontSize: 'clamp(14px,1.3vw,16px)', fontFamily: 'Inter' }}>
             Real feedback from businesses I've built for.
